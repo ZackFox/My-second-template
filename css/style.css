@@ -1,0 +1,86 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900);
+
+
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+html{
+	height: 100%;
+}
+
+body{
+	height: 100%;
+	font-family: 'Roboto','verdana', sans-serif;
+	position: relative;
+}
+
+
+.clearfix:after{
+	content:".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear:both;
+}
+
+.wrapper {
+	margin: 0 auto;
+	max-width:1122px;
+	height: 100%;
+}
+
+header{
+	
+}
+
+
+header h2 {text-align: center;}
+
+
+.slider_wrapper {
+	width: 900px;
+	height: 300px;
+	overflow: hidden;
+	position: relative;	
+	margin:0 auto;
+}
+
+.slider_container{
+	width: 4500px;
+	height: 300px;
+	position: relative;
+	left: 0;
+}
+
+.slides{
+	width: 900px;
+	height: 300px;
+	float: left;	
+}
+
+.color_blue {background: blue;}
+.color_green {background: green;}
+.color_pink {background: pink;}
+.color_yellow {background: yellow;}
+.color_ds {background: #525252;}
+
+.prev_slide, .next_slide {
+	position: absolute;
+	width: 60px;
+	height: 100px;	
+	background: #ccc;
+	cursor: pointer;
+}
+
+.prev_slide{
+	top: 95px;
+    left: 0px;
+} 
+
+.next_slide{
+	top: 95px;
+    right: 0px;
+} 
