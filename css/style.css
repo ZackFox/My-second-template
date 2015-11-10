@@ -69,17 +69,18 @@ img{
 .prev_slide, .next_slide {
 	position: absolute;
 	width: 60px;
-	height: 100px;	
-	background: #ccc;
+	height: 100%;	
+	background: #000;
+	opacity: 0;
 	cursor: pointer;
+	top: 0;
+	-webkit-transition: all .25s linear;
+	   -moz-transition: all .25s linear;
+	    -ms-transition: all .25s linear;
+	     -o-transition: all .25s linear;
+	        transition: all .25s linear;
 }
 
-.prev_slide{
-	top: 95px;
-    left: 0px;
-} 
-
-.next_slide{
-	top: 95px;
-    right: 0px;
-} 
+.prev_slide:hover, .next_slide:hover{opacity: 0.5;}
+.prev_slide{left: 0px;} 
+.next_slide{right: 0px;} 
