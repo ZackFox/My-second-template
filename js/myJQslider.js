@@ -1,11 +1,11 @@
 ;(function($){
 	//---переменные
-	var next = $(".next_slide"),	 // кнопка вперед 
+	var next = $(".next_slide"),		// кнопка вперед 
 		prev = $(".prev_slide"),	 // кнопка назад
 		cn = $(".slider_container"), // контейнер слайдов
 		sl = $(".slides").length,	 // число слайдов
-		sWidth = 900,				 // ширина слайда
- 		count = 1 ; 				 // счетчик
+		sWidth = 900,			// ширина слайда
+ 		count = 1 ; 			// счетчик
 	
 	//---переход вперед
 	next.click(function(){
@@ -32,7 +32,6 @@
 				$(".slides").first().remove();				
 				count=sl;
 			})
-
 		}else if(sl-count>=0){
 			cn.animate({"left":'+='+sWidth+'px'},1000);
 		count--;}		
