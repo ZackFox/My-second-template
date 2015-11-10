@@ -42,7 +42,6 @@ header h2 {text-align: center;}
 
 .slider_wrapper {
 	width: 900px;
-	height: 300px;
 	overflow: hidden;
 	position: relative;	
 	margin:0 auto;
@@ -50,15 +49,15 @@ header h2 {text-align: center;}
 
 .slider_container{
 	width: 4500px;
-	height: 300px;
 	position: relative;
 	left: 0;
 }
 
 .slides{
-	width: 900px;
-	height: 300px;
 	float: left;	
+}
+img{
+	width:100%;
 }
 
 .color_blue {background: blue;}

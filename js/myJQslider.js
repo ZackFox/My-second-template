@@ -1,29 +1,41 @@
 ;(function($){
-
-	//---Объявление переменных
-	var next = $(".next_slide"),	 // кнопка вперед
-		prev = $(".prev_slide"),	 // кнопка назад
-		cn = $(".slider_container"), // контейнер со слайдами
-		sl = $(".slides").length,	 // количество всех слайдов
-		sWidth = 900,				 // ширина одного слайда и пророг перехода
- 		count = 1 ; 				 // счетчик слайдов
+	//---РїРµСЂРµРјРµРЅРЅС‹Рµ
+	var next = $(".next_slide"),	 // РєРЅРѕРїРєР° РІРїРµСЂРµРґ 
+		prev = $(".prev_slide"),	 // РєРЅРѕРїРєР° РЅР°Р·Р°Рґ
+		cn = $(".slider_container"), // РєРѕРЅС‚РµР№РЅРµСЂ СЃР»Р°Р№РґРѕРІ
+		sl = $(".slides").length,	 // С‡РёСЃР»Рѕ СЃР»Р°Р№РґРѕРІ
+		sWidth = 900,				 // С€РёСЂРёРЅР° СЃР»Р°Р№РґР°
+ 		count = 1 ; 				 // СЃС‡РµС‚С‡РёРє
 	
-	//---Переход на ледующий слайд
+	//---РїРµСЂРµС…РѕРґ РІРїРµСЂРµРґ
 	next.click(function(){
 		if(sl-count>0){
 			cn.animate({"left":'-='+sWidth+'px'},1000);
-			count++;}
-		else{cn.animate({"left": 0},1500);
-			count = 1;}
-	});
-	
-	//---Переход на предыщий слайд
-	prev.click(function(){
+			count++;
+		}else if (sl-count===0){
+			cn.append($(".slides").first().clone());
+			cn.animate({"left":'-='+sWidth+'px'},1000,function(){
+				$(".slides").last().remove();
+				cn.css({"left":0});
+				count=1;				
+			})
+		count ++;
+		}
+	});	
+	//---РїРµСЂРµС…РѕРґ РЅР°Р·Р°Рґ 
+	prev.click(function(){		
 		if(sl-count === sl-1){
-			cn.animate({"left": "-"+(sWidth*(sl-1))+'px'},1500);
-			count = sl;}
-		else{cn.animate({"left":'+='+sWidth+'px'},1000);
-			count--;}
+			cn.css({"left":"-"+sWidth+"px"});	
+			cn.prepend($(".slides").last().clone());
+			cn.animate({"left": "+="+sWidth+"px"},1000,function(){
+				cn.css({"left":"-"+sWidth*(sl-1)+"px"});			
+				$(".slides").first().remove();				
+				count=sl;
+			})
+
+		}else if(sl-count>=0){
+			cn.animate({"left":'+='+sWidth+'px'},1000);
+		count--;}		
 	});
 })(jQuery);
 
