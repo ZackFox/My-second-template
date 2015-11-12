@@ -41,30 +41,22 @@ header h2 {text-align: center;}
 
 
 .slider_wrapper {
-	width: 900px;
+	width: 90%;
 	overflow: hidden;
 	position: relative;	
 	margin:0 auto;
 }
 
 .slider_container{
-	width: 4500px;
+	width: 400%;
 	position: relative;
 	left: 0;
 }
 
-.slides{
-	float: left;	
-}
-img{
-	width:100%;
-}
+.slides{float: left;width: 25%;}
+.slides img{width:100%;}
 
-.color_blue {background: blue;}
-.color_green {background: green;}
-.color_pink {background: pink;}
-.color_yellow {background: yellow;}
-.color_ds {background: #525252;}
+
 
 .prev_slide, .next_slide {
 	position: absolute;
@@ -84,3 +76,59 @@ img{
 .prev_slide:hover, .next_slide:hover{opacity: 0.5;}
 .prev_slide{left: 0px;} 
 .next_slide{right: 0px;} 
+
+
+/* слайдер 2 */
+
+.slider_wrapper_css{
+	width: 80%;
+	overflow: hidden;
+	position: relative;
+	margin: 0 auto;			
+} 
+
+.slider_wrapper_css input { display: none;}
+.slider_css_container{
+	width: 400%; 
+-webkit-transition: all .5s ease;
+   -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+     -o-transition: all .5s ease;
+        transition: all .5s ease;
+    }
+.slides_css {float: left;width: 25%;}
+.slides_css img{width: 100%;}
+.controls {width: 100%;}
+.controls label{display: none; top:50%;}
+
+#slide1:checked ~ .controls label:nth-child(2),
+#slide2:checked ~ .controls label:nth-child(3),
+#slide3:checked ~ .controls label:nth-child(4),
+#slide4:checked ~ .controls label:nth-child(1){
+	display: block;
+	border-top: 30px solid transparent ;
+	border-left: 30px solid #000 ;
+	border-bottom: 30px solid transparent ;
+	position: absolute;
+	cursor: pointer;
+	right:4px;
+	margin-top: -30px;
+}
+#slide1:checked ~ .controls label:nth-child(4),
+#slide2:checked ~ .controls label:nth-child(1),
+#slide3:checked ~ .controls label:nth-child(2),
+#slide4:checked ~ .controls label:nth-child(3){
+	display: block;
+	border-top: 30px solid transparent ;
+	border-right: 30px solid #ccc ;
+	border-bottom: 30px solid transparent ;
+	position: absolute;
+	cursor: pointer;
+	left:4px;
+	margin-top: -30px;
+}
+
+#slide1:checked ~ .slider_css_container{margin-left: 0;}
+#slide2:checked ~ .slider_css_container{margin-left: -100%;}
+#slide3:checked ~ .slider_css_container{margin-left: -200%;}
+#slide4:checked ~ .slider_css_container{margin-left: -300%;}
