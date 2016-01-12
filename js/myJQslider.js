@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	// автопрокрутка для CSS слайдера
 	var control = $(".controls label"),
 		firstLabel = $(".controls label").first(),
 		lasttLabel = $(".controls label").last(),
@@ -11,13 +12,13 @@ $(document).ready(function(){
 	},2000);
 });
 
-
+//слайдер JQ
 ;(function($){
 	//---переменные
 	var next = $(".next_slide"),		// кнопка вперед 
 		prev = $(".prev_slide"),	 // кнопка назад
 		cn = $(".slider_container"), // контейнер слайдов
-		sl = $(".slides").length,	 // число слайдов
+		sl = $(".slides").length,	 // число слайдов 
 		sWidth = 100,			// ширина слайда
  		count = 1 ; 			// счетчик
 	
