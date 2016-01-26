@@ -15,6 +15,7 @@ body{
 	height: 100%;
 	font-family: 'Roboto','verdana', sans-serif;
 	position: relative;
+  background: #eaeaea;
 }
 
 
@@ -32,31 +33,11 @@ body{
 	height: 100%;
 }
 
-header{
-	
+h2 {
+  text-align: center;
+  color:#748089;
+  font-family: "PTsans",sans-serif;
 }
-
-
-header h2 {text-align: center;}
-
-
-.slider_wrapper {
-	width: 90%;
-	overflow: hidden;
-	position: relative;	
-	margin:0 auto;
-}
-
-.slider_container{
-	width: 400%;
-	position: relative;
-	left: 0;
-}
-
-.slides{float: left;width: 25%;}
-.slides img{width:100%;}
-
-
 
 .prev_slide, .next_slide {
 	position: absolute;
@@ -81,10 +62,14 @@ header h2 {text-align: center;}
 /* слайдер 2 */
 
 .slider_wrapper_css{
-	width: 80%;
+	width: 60%;
 	overflow: hidden;
 	position: relative;
-	margin: 0 auto;			
+	margin: 0 auto;	
+  border: 10px solid #fff;
+  -webkit-box-shadow: 0px 7px 15px -5px #545454;    
+  -moz-box-shadow: 0px 7px 15px -5px #545454;    
+  box-shadow: 0px 7px 15px -5px #545454;		
 } 
 
 .slider_wrapper_css input { display: none;}
@@ -106,26 +91,53 @@ header h2 {text-align: center;}
 #slide3:checked ~ .controls label:nth-child(4),
 #slide4:checked ~ .controls label:nth-child(1){
 	display: block;
-	border-top: 30px solid transparent ;
-	border-left: 30px solid #000 ;
-	border-bottom: 30px solid transparent ;
-	position: absolute;
-	cursor: pointer;
-	right:4px;
-	margin-top: -30px;
+  background: #fff;
+  width: 30px;
+  height: 60px;
+  position: absolute;
+  cursor: pointer;
+  right: 0px;
+  margin-top: -45px;
+  -webkit-border-radius: 45px 0 0 45px;
+  -moz-border-radius: 45px 0 0 45px;
+  border-radius: 45px 0 0 45px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 #slide1:checked ~ .controls label:nth-child(4),
 #slide2:checked ~ .controls label:nth-child(1),
 #slide3:checked ~ .controls label:nth-child(2),
 #slide4:checked ~ .controls label:nth-child(3){
 	display: block;
-	border-top: 30px solid transparent ;
-	border-right: 30px solid #ccc ;
-	border-bottom: 30px solid transparent ;
-	position: absolute;
-	cursor: pointer;
-	left:4px;
-	margin-top: -30px;
+  background: #fff;
+  width: 30px;
+  height: 60px;
+  position: absolute;
+  cursor: pointer;
+  left: 0px;
+  margin-top: -45px;
+  -webkit-border-radius: 0 45px 45px 0px;
+  -moz-border-radius: 0 45px 45px 0px;
+  border-radius: 0 45px 45px 0px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#slide1:checked ~ .controls label:nth-child(2):hover,
+#slide2:checked ~ .controls label:nth-child(3):hover,
+#slide3:checked ~ .controls label:nth-child(4):hover,
+#slide4:checked ~ .controls label:nth-child(1):hover{
+  background: #EDEDED;
+  box-shadow: inset -3px 0px 10px -4px rgba(0, 0, 0, 0.58);
+}
+#slide1:checked ~ .controls label:nth-child(4):hover,
+#slide2:checked ~ .controls label:nth-child(1):hover,
+#slide3:checked ~ .controls label:nth-child(2):hover,
+#slide4:checked ~ .controls label:nth-child(3):hover{
+  background: #EDEDED;
+  box-shadow: inset 3px 0px 10px -4px rgba(0, 0, 0, 0.58);
 }
 
 #slide1:checked ~ .slider_css_container{margin-left: 0;}

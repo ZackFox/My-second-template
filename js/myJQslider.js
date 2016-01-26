@@ -9,7 +9,7 @@ $(document).ready(function(){
 		else if ($("input[type='radio']").first().next().prop("checked")){SecondLabel.next().click();}	
 		else if($("input[type='radio']").last().prev().prop("checked")){lasttLabel.click();}
 		else if ($("input[type='radio']").last().prop("checked")){firstLabel.click();}	
-	},2000);
+	},4000);
 });
 
 //слайдер JQ
