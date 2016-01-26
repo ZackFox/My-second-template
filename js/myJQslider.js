@@ -5,10 +5,10 @@ $(document).ready(function(){
 		lasttLabel = $(".controls label").last(),
 		SecondLabel = firstLabel.next();
 	setInterval(function(){
-		if ($("input[type='radio']").first().prop("checked")){SecondLabel.click();}
-		else if ($("input[type='radio']").first().next().prop("checked")){SecondLabel.next().click();}	
-		else if($("input[type='radio']").last().prev().prop("checked")){lasttLabel.click();}
-		else if ($("input[type='radio']").last().prop("checked")){firstLabel.click();}	
+		if ($(".slider_wrapper_css input[type='radio']").first().prop("checked")){SecondLabel.click();}
+		else if ($(".slider_wrapper_css input[type='radio']").first().next().prop("checked")){SecondLabel.next().click();}	
+		else if($(".slider_wrapper_css input[type='radio']").last().prev().prop("checked")){lasttLabel.click();}
+		else if ($(".slider_wrapper_css input[type='radio']").last().prop("checked")){firstLabel.click();}	
 	},4000);
 });
 
