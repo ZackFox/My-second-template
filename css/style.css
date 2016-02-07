@@ -77,7 +77,7 @@ h2 {
   height: 60px;
   position: absolute;
   cursor: pointer;
-  right: 0px;
+  right: -6px;
   margin-top: -35px;
   -webkit-border-radius: 45px 0 0 45px;
   -moz-border-radius: 45px 0 0 45px;
@@ -96,7 +96,7 @@ h2 {
   height: 60px;
   position: absolute;
   cursor: pointer;
-  left: 0px;
+  left: -6px;
   margin-top: -35px;
   -webkit-border-radius: 0 45px 45px 0px;
   -moz-border-radius: 0 45px 45px 0px;
@@ -105,20 +105,43 @@ h2 {
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-
-#slide1:checked ~ .controls label:nth-child(2):hover,
-#slide2:checked ~ .controls label:nth-child(3):hover,
-#slide3:checked ~ .controls label:nth-child(4):hover,
-#slide4:checked ~ .controls label:nth-child(1):hover{
-  background: #EDEDED;
-  box-shadow: inset -3px 0px 10px -4px rgba(0, 0, 0, 0.58);
+#slide1:checked ~ .controls label:nth-child(4):before,
+#slide2:checked ~ .controls label:nth-child(1):before,
+#slide3:checked ~ .controls label:nth-child(2):before,
+#slide4:checked ~ .controls label:nth-child(3):before{
+  content:"\f0d9";
+  position: absolute;
+  top: 19px;
+  left: 5px;
+  font-size: 20px;
+  color: #f54341;
+  font-family: "FontAwesome";
 }
-#slide1:checked ~ .controls label:nth-child(4):hover,
-#slide2:checked ~ .controls label:nth-child(1):hover,
-#slide3:checked ~ .controls label:nth-child(2):hover,
-#slide4:checked ~ .controls label:nth-child(3):hover{
-  background: #EDEDED;
-  box-shadow: inset 3px 0px 10px -4px rgba(0, 0, 0, 0.58);
+
+#slide1:checked ~ .controls label:nth-child(2):before,
+#slide2:checked ~ .controls label:nth-child(3):before,
+#slide3:checked ~ .controls label:nth-child(4):before,
+#slide4:checked ~ .controls label:nth-child(1):before{
+  content:"\f0da";
+  position: absolute;
+  top: 19px;
+  right: 5px;
+  font-size: 20px;
+  color: #f54341;
+  font-family: "FontAwesome";
+}
+
+#slide1:checked ~ .controls label:nth-child(2):hover:before,
+#slide2:checked ~ .controls label:nth-child(3):hover:before,
+#slide3:checked ~ .controls label:nth-child(4):hover:before,
+#slide4:checked ~ .controls label:nth-child(1):hover:before{
+  color:#000;
+}
+#slide1:checked ~ .controls label:nth-child(4):hover:before,
+#slide2:checked ~ .controls label:nth-child(1):hover:before,
+#slide3:checked ~ .controls label:nth-child(2):hover:before,
+#slide4:checked ~ .controls label:nth-child(3):hover:before{
+  color:#000;
 }
 
 #slide1:checked ~ .slider_css_container{margin-left: 0;}
@@ -148,16 +171,18 @@ h2 {
 #slide2:checked ~ .active-dot label:nth-child(2),
 #slide3:checked ~ .active-dot label:nth-child(3),
 #slide4:checked ~ .active-dot label:nth-child(4){
-  background:#f56431;
+  background: #f54341;
 }
 
 .tabs{
   width: 35%;
-  height: 200px;
   float: left;
   margin-left: 1%;
 }
+
+.tabs input[type="radio"]{display: none; }
 .tab-items{margin-bottom: 4px;}
+
 #tab-1:checked ~ .tab-items label:nth-child(1), 
 #tab-2:checked ~ .tab-items label:nth-child(2), 
 #tab-3:checked ~ .tab-items label:nth-child(3){
@@ -170,8 +195,13 @@ h2 {
 .tab-head{
   padding: 5px 10px;
   background: #FDFDFD;
+  -webkit-border-radius: 7px 7px 0 0;
+  -moz-border-radius: 7px 7px 0 0;
   border-radius: 7px 7px 0 0;
+  -webkit-box-shadow: inset -1px 0px 0px #CAC9C9;
+  -moz-box-shadow: inset -1px 0px 0px #CAC9C9;
   box-shadow: inset -1px 0px 0px #CAC9C9;
+  cursor: pointer;
 }
 
 .tab-content{
@@ -186,4 +216,79 @@ h2 {
 #tab-2:checked ~ #cnt-2,
 #tab-3:checked ~ #cnt-3{
   display: block;  
+}
+
+.side-menu {
+  width: 240px;
+  height: 100%;
+  position: fixed;
+  background: #303033;
+  padding: 10px 10px;
+  top: 0;  
+  right: -260px;
+  z-index: 20;
+  transition: all 0.8s ease;
+}
+
+.menu-open{right: 0;}
+
+.side-menu ul {list-style: none;}
+.cover{
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
+.menu-btn{
+  position: absolute;
+  top:10px;
+  left:-60px;
+  width: 30px;
+  height: 30px;
+  background: #000;
+  cursor: pointer;
+}
+.accordion{
+  width: 400px;
+  float: left;
+  margin-left: 10px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  overflow: hidden;
+  border: 2px solid #ccc;
+}
+.accordion ul {list-style: none;}
+.accordion .acc-head{
+  display: block;
+  background: #dd4343;
+  padding: 10px 20px ;
+  color: #fff;
+  font-family: "Roboto";
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0px 1px #000
+}
+
+.acc-drop li a{
+  display: block;
+  background: #fff;
+  padding: 10px 20px 10px 40px ;
+  color: #bbb;
+  font-family: "Roboto";
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.acc-drop li a:hover{
+  background: #E0E0E0;
+  color: #fff;
+}
+
+.acc-drop{
+  display: none;
 }
