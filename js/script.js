@@ -25,18 +25,21 @@ $(document).ready(function(){
   // ---------------открытие меню
   var isOpen = false;
   $(".menu-btn").click(function(){
-    if(Modernizr.cssanimations){  
-      $(".cover").fadeToggle(500);
+    $(".cover").fadeToggle(500);
+    if(Modernizr.cssanimations){        
       $(".side-menu").toggleClass("menu-open");
+      $(this).toggleClass("btn-open");
     }
     // анимация для IE9
     else {
       if(!isOpen){
         isOpen = true;
-        $(".side-menu").animate({"right":"0px"},800);   
+        $(".side-menu").animate({"right":"0px"},800);
+        $(this).animate({"left":"20px"},300);   
       }           
       else{   
         isOpen = false;
+        $(this).animate({"left":"-60px"},300);
         $(".side-menu").animate({"right":"-260px"},800);  
       }            
     }    
