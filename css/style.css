@@ -312,9 +312,10 @@ h2 {
   display: none;
 }
 
+/*--------------------------Форма-------------------------*/
+
 .form-block{
   float: left;
-  /*width: 300px;*/
   margin-bottom: 20px;
 }
 
@@ -354,3 +355,48 @@ h2 {
 }
 
 .form-block .btn-send:hover{background: #FFD800;}  
+
+/*-------ползунки------*/
+.input-range{
+  float: left;
+}
+.rangers{
+  width: 250px;
+  border:2px solid #fff;
+  box-shadow: 2px 2px 7px #ccc;
+  padding: 20px;
+  margin-left: 10px;
+}
+.track {
+  width: 100%;
+  height: 7px;
+  background:#fff;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 0 1px #b3b3b3;
+  position: relative;
+}
+.thumb,.thumbD{
+  position: absolute;
+  background: #fff;
+  width: 10px;
+  height: 20px;
+  border:1px solid #b3b3b3;
+  top:-7px;
+  cursor: pointer;
+}
+.drag,.drag2{
+  background: #2196f3;
+  border:1px solid #fff;
+}
+
+.rangers { margin-bottom: 25px;}
+
+.line{
+  position: absolute;
+  background: green;
+  height: 7px;
+  left: 20px;
+  right: 20px;
+}
+.thumbL{left: 20px;}
+.thumbR{right:20px;}

@@ -31,7 +31,7 @@
     </nav>
   </div>
   <div class="cover"></div>
-  <div class="wrapper">
+  <div class="wrapper clearfix">
   	<h2>CSS Слайдер</h2>
   	<div class="slider_wrapper_css ">	
   		<input type="radio" id="slide1" name="slide" checked>
@@ -162,12 +162,23 @@
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
     </div>
-    <div class="rangers">
-      <div class="single-range">
-        <input type="range">
+    <div class="input-range">
+      <div class="rangers">
+        <div id="slider" class="track">
+          <div class="thumb"></div>
+        </div>      
       </div>
-      <div class="double-range"></div>
+
+      <div class="rangers">
+        <div id="slider" class="track">
+          <div class="line"></div>
+          <div class="thumbD thumbL"></div>
+          <div class="thumbD thumbR"></div>
+        </div>      
+      </div>
     </div>
+
+
     <div class="before-image">
       
     </div>
