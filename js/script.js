@@ -71,11 +71,10 @@ $(document).ready(function(){
 
       $(document).mousemove(function(e){              
         var pos = e.pageX- trackCor - curShift ;
-
+        var posEnd = track.width() - thumb.outerWidth();
+        
         if(pos < 0){ pos = 0;}
-        else if(pos > track.width() - thumb.outerWidth()){ 
-          pos = track.width()-thumb.outerWidth();
-        } 
+        else if(pos > posEnd){pos = posEnd ;} 
         $(".drag").css({"left": pos +'px'});
       }).on("mouseup", function(){ $(".thumb").removeClass("drag"); });
       return false; //отмена выделения текста 
@@ -118,8 +117,7 @@ $(document).ready(function(){
         else if($(".drag2").hasClass("thumbR")){
           if(posR<0){posR=0};
           if(posR > (trackCor+track.width())- thumbL - 22){
-            posR = (trackCor+track.width()) - thumbL - 22;
-          }; 
+            posR = (trackCor+track.width()) - thumbL - 22;}; 
           $(".drag2").css({"right": posR +'px'});
           $(".line").css({"right": posR +'px'});
         }              
@@ -128,6 +126,35 @@ $(document).ready(function(){
     });
   })();
   
+
+  (function(){
+    var thumb = $(".thumb-edge"), zone = $(".img-comp");
+    thumb.css({"left": zone.width()/2-thumb.width()/2 +"px"});
+    $(".img-after").css({"left": zone.width()/2+"px"});
+    
+    thumb.on("mousedown", function(e){
+      var corZone = zone.offset().left,
+          curShift = e.pageX - thumb.offset().left;
+      $(this).addClass("divide");           
+      $(".img-after, .img-before").addClass("divided");           
+      
+      $(document).mousemove(function(e){              
+        var pos = e.pageX - corZone - curShift ;  
+        if(pos<1){pos=1}
+        else if (pos>zone.width()-16){pos = zone.width()-16};
+        $(".divide").css({ left: pos +"px" });    
+        $(".img-after.divided").css({ left: pos+thumb.width()/2 +"px" });              
+      }).on("mouseup", function(){ 
+        thumb.removeClass("divide").stop(true,false)
+          .animate({"left": zone.width()/2-thumb.width()/2 +"px" },300);          
+        $(".img-after").removeClass("divided").stop(true,false)
+          .animate({"left": zone.width()/2 +"px" },300);           
+      });      
+      return false; 
+    });
+    $(".img-after").on("dragstart", function(){return false;}); // отмена переноса картинок 
+  })();
+
   // загрузка текста 
   $.getJSON("tab.json",function(data){
     $(".tab-content p").html(data.tab1);
